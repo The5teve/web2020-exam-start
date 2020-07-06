@@ -1,0 +1,105 @@
+
+html{
+    background-image: url(../static/img/1030.png);
+}
+body {
+    color:#141a50;
+    background-image: url(../static/img/1030.png);
+
+}
+.clearcontainer{
+    background-color: rgba(255, 255, 255, 0);
+}
+.navbar-brand{
+    color: #2ab1de;
+    text-decoration: none;
+}
+.navbar {
+    background-color: #9400d3 ;
+    font-family: 'Roboto Mono', monospace;
+
+}
+.navbar a {
+    color:#141a50;
+    font-size: 20px;
+
+}
+.nav-item{
+    font-size: 10px;
+}
+
+.promo{
+    color:#141a50;
+    background-color: white;
+}
+
+.promo img{
+    width: 50px;
+    height: 50px;
+}
+
+.correct-btn{
+    margin-top: 35px;
+}
+.m-footer {
+    background-color: white;
+}
+.paginationMargin{
+    margin: auto;
+    
+}
+.paginationMargin a {
+    color: #141a50;
+}
+.card {
+    margin: auto;
+    border: 0px !important;
+}
+.card img {
+    margin: auto;
+    width: 150px !important;
+    height: 150px !important;
+}
+.forCheckImg{
+    width: 20px !important;
+    height: 35px !important;
+}
+.myOwnRow{
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+.card a {
+    margin: auto !important;
+}
+.card .row :nth-child(3n) {
+    border-radius: 0 10px 30px 0 !important;
+
+
+}
+.card .row :nth-child(1) {
+    border-radius: 10px 0 0 30px !important;
+
+
+}
+.card input {
+
+    border-radius: 0 !important;
+}
+.containerChoosen{
+    background-color: white;
+}
+.form-check  {
+    font-size: 20px;
+}
+.SummaryContainer{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#collapseExample{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

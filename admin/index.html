@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Административная панель</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="https://kit.fontawesome.com/b9c2da3ba1.js" crossorigin="anonymous"></script>
+
+</head>
+  <body>
+
+   <nav class="navbar  navbar-background " >
+         <a class="navbar-brand" href="#">
+        <img src="../user/static/img/purpled.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        Админка Жидкий Артём
+        </a>
+    </nav>
+    <div class="container clearcontainer">
+      <div id="for-alerts" class="my-0" >
+
+      </div>
+    </div>
+
+    <div class="container text-center my-5">
+        <h1> Предприятия общественного питания города Москвы </h1>
+        <hr>
+    </div>
+
+    <div class="container opinions container-find my-3 py-3">
+
+            <form id="findForm">
+                <div class="form-group ">
+                <div class="row ">
+                    <div class="col-md-7  ">                    
+                        <label for="name">Наименование</label>
+                        <input class="form-control" type="text" name="name" value="Нужное наименование">
+                        <div class="row">
+                            <div class="col-md-8">
+                            <label for="seatsCount">Количество посадочных мест (от / до)</label> 
+                            <div class="form-inline">
+                                <input class="form-control" type="text" name="seatsCount" value="100">
+                                <input class="form-control" type="text" name="seatsCount" value="500">
+                            </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="isNetObject">Является сетевым</label>
+                                <select name="isNetObject" id="isNetObject" class="form-control custom-select">
+                                    <option value="">Не выбрано</option>
+                                    <option value="1">Да</option>
+                                    <option value="0">Нет</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label for="created_at">Дата создания (с / до)</label> 
+                                <div class="form-inline">
+                                    <input class="form-control" type="date" id="created_at1" value="2020-05-01">
+                                    <input class="form-control" type="date" id="created_at2" value="2020-06-30">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="isNetObject">Льготы</label>
+                                <select name="isNetObject" id="isNetObject" class="form-control custom-select">
+                                    <option value="">Не выбрано</option>
+                                    <option value="1">Да</option>
+                                    <option value="0">Нет</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5  ">
+                        <div class="form-group">
+                        <label for="admArea">Административный округ</label>
+                        <select name="admArea" id="admArea1" class="form-control custom-select">
+                            <option value="">Не выбрано</option>
+
+                        </select>
+                        <label for="district">Район</label>
+                        <select name="district" id="dist1" class="form-control custom-select">
+                            <option value="">Не выбрано</option>
+
+                        </select>
+                        <label for="typeObject">Вид объекта</label>
+                        <select name="typeObject" id="typObj1" class="form-control custom-select">
+                            <option value="">Не выбрано</option>
+
+                        </select>
+                        </div>
+                    </div>
+                </div>
+            </form> 
+                <div class="form-group text-center">
+                    <button type="button" class="btn btn-md btn-outline-warning btn-block" id="downloadDataBtn" >Найти</button>
+                </div>
+
+    </div>
+
+    </div>
+
+    <div class="container">
+
+        <table id="records" class="table">
+            <thead id="thead">
+            <th> Название </th> <th id="NotForMobile1"> Тип </th> <th id="NotForMobile2"> Местоположение </th> <th> Действие</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+
+        <div class="row mt-3">
+            <div class="col-md-10">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination" id="greatPaginations">
+                      <li class="page-item"><a class="page-link" href="#records" id="previousElement" >Предыдущая</a></li>
+                      <li class="page-item"><a class="page-link PaginationElement" href="#records" id="firstPageElement" >1</a></li>
+                      <li class="page-item"><a class="page-link" href="#records" id="secondPageElement">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#records" id="thirdPageElement">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#records" id="nextElement">Следующая</a></li>
+                    </ul>
+                  </nav>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" id="createNewBtn"data-target="#staticBackdrop">
+                      
+                        Добавить запись
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+      <footer class="footer text-center ">
+          <div class="container ">
+            <div class="text-center m-3">
+            <h6>Департамент торговли и услуги города Москвы </h6>
+            </div>
+            <div class="row mb-1">
+                <div class="col-sm-4">
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-4">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-4">
+                  <i class="fa fa-youtube" aria-hidden="true"></i>
+                </div>
+            </div>
+            </div>
+      </footer>
+
+      <!-- Modal-->
+      <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Добавить новую запись</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body ">
+
+                    <form id="createForm" >
+                      <div class="form-group">
+                          <label for="name">Наименование</label>
+                          <input class="form-control"  type="text" name="name" value="Новое наименование" id="name">
+                          <div class="form-group mb-0 mt-2">
+                            <label  for="inlineRadio1 mb-0">Является сетевым</label>
+                          </div>
+
+                          <div class="form-check form-check-inline mb-3">
+
+                            <input class="form-check-input" type="radio" name="isNetObject" id="isNetTrue" value="1">
+                            <label class="form-check-label" for="inlineRadio1">Да</label>
+                          </div>
+                          <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="isNetObject" id="isNetFalse"  value="0">
+                            <label class="form-check-label" for="inlineRadio2">Нет</label>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="operatingCompany">Название управляющей компании</label>
+                            <input class="form-control" type="text" name="operatingCompany" id="operatingCompany" value="">
+                          <label for="typeObject">Вид объекта</label>
+                          <select name="typeObject" id="typeObject" class="form-control custom-select">
+
+                          </select>
+                          <label for="admArea">Административный округ</label>
+                          <select name="admArea" id="admArea" class="form-control custom-select">
+
+                          </select>
+                          <label for="district">Район</label>
+                          <select name="district" id="district" class="form-control custom-select">
+
+                          </select>
+                          <label for="address">Адрес</label>
+                          <textarea class="form-control" id="address" name="address"rows="3"></textarea>
+                          <label for="seatsCount">Количество посадочных мест</label>
+                          <input class="form-control"  type="text" name="seatsCount" id="seatsCount" value="">
+                          <div class="form-group mb-0 mt-2">
+                            <label  for="socialPrivileges">Показатель социальных льгот</label>
+                          </div>
+                          <div class="form-check form-check-inline mb-3">
+
+                            <input class="form-check-input" type="radio" name="socialPrivileges"  id ="socialPrivilegesTrue" value="1">
+                            <label class="form-check-label" for="socialPrivileges">Есть</label>
+                          </div>
+                          <div class="form-check form-check-inline mb-3">
+                            <input class="form-check-input" type="radio" name="socialPrivileges" id ="socialPrivilegesFalse" value="0">
+                            <label class="form-check-label" for="socialPrivileges">Нет</label>
+                          </div>
+                          <div class="form-group">
+                            <label for="publicPhone">Телефон</label>
+                            <input class="form-control" type="text" id="publicPhone" name="publicPhone" value="">
+                          </div>
+                          <div class="text-center">
+                            <h4>Сеты</h4>
+                          </div>
+                          <div class="form-group">
+                            <div class="row">
+                              <div class="col-sm-4">
+                                <label for="set_1">Сет 1</label>
+                                <input class="form-control" type="text" id="set_1" name="set_1" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_2">Сет 2</label>
+                                <input class="form-control" type="text" id="set_2" name="set_2" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_3">Сет 3</label>
+                                <input class="form-control" type="text" id="set_3" name="set_3" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_4">Сет 4</label>
+                                <input class="form-control" type="text" id="set_4" name="set_4" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_5">Сет 5</label>
+                                <input class="form-control" type="text" id="set_5" name="set_5" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_6">Сет 6</label>
+                                <input class="form-control" type="text" id="set_6" name="set_6" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_7">Сет 7</label>
+                                <input class="form-control" type="text" id="set_7" name="set_7" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_8">Сет 8</label>
+                                <input class="form-control" type="text" id="set_8" name="set_8" value="">
+                              </div>
+                              <div class="col-sm-4">
+                                <label for="set_9">Сет 9</label>
+                                <input class="form-control" type="text" id="set_9" name="set_9" value="">
+                              </div>
+                              <div class="col-sm-4">
+                              </div>
+
+                              <div class="col-sm-4">
+                                <label for="set_10">Сет10</label>
+                                <input class="form-control" type="text" id="set_10" name="set_10" value="">
+                              </div>
+                              <div class="col-sm-4">
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+ 
+                    </form>
+                    
+          
+
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              </div>
+              <div class="form-group" id="forSwitchButtons">
+                <button type="button" id="createBtn" class="btn btn-primary" data-dismiss="modal">Создать</button>
+                <button type="button" id="editBtn" class="btn btn-primary" data-dismiss="modal">Редактировать</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Modal-Delete-->
+      <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Удаление записи</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h6 id="areYouSure"> </h6>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              <button type="button" class="btn btn-danger" id="actuallyDeleteBtn" data-dismiss="modal">Удалить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="showModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="showModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="modalInfoBody">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ок!! ок.</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="static/main.js" defer> </script>
+  </body>
+</html>
